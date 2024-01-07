@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,19 @@ Route::get('/', [AppController::class, 'home'])->name('home');
 Route::prefix('/auth')->name('auth.')->controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::post('/login', 'doLogin');
-    Route::get('/logout', 'logout')->name('logout');
+    Route::delete('/logout', 'logout')->name('logout');
+});
+
+/* Routes des projets */
+
+Route::prefix('/project')->name('project.')->controller(ProjectController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/new', 'create')->name('create')->middleware('auth');
+    Route::post('/new', 'store')->middleware('auth');
+    Route::get('/{project}/edit', 'edit')->name('edit')->middleware('auth');
+    Route::patch('/{project}/edit', 'update')->middleware('auth');
+    Route::get('/{slug}/{project}', 'show')->where([
+        'project' => '[0-9]+',
+        'slug' => '[a-z0-9\-]+'
+    ])->name('show');
 });

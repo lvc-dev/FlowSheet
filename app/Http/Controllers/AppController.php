@@ -9,11 +9,11 @@ use Illuminate\View\View;
 class AppController extends Controller
 {
     public function home() : View {
-        /* User::create([
+        /*User::create([
             'name' => 'Vincent',
             'email' => 'lefebvre-v@laposte.net',
             'password' => Hash::make('vincent76')
-        ]); */
+        ]);*/
         return view('home');
     }
 }
