@@ -1,13 +1,28 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "devDependencies": {
-        "axios": "^1.6.1",
-        "laravel-vite-plugin": "^1.0.0",
-        "vite": "^5.0.0"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "axios": "^1.6.1",
+    "laravel-vite-plugin": "^1.0.0",
+    "sass": "^1.69.7",
+    "vite": "^5.0.11"
+  },
+  "name": "flowsheet",
+  "description": "",
+  "version": "1.0.0",
+  "main": "vite.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.2"
+  }
 }
