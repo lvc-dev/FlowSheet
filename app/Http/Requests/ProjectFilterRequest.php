@@ -11,7 +11,7 @@ class ProjectFilterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class ProjectFilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'min:8'],
+            //'slug' => ['required', 'min:8', 'regex:/^[0-9a-z\-]+$/', Rule::unique('projects')->ignore($this->route()->parameter('project'))],
+            'type_id' => ['required', 'exists:types,id'],
+            'tags' => ['array', 'required', 'exists:tags,id']
         ];
     }
 }

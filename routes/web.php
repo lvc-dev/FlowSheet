@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PieceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TypeController;
@@ -41,7 +42,7 @@ Route::prefix('/type')->name('type.')->controller(TypeController::class)->middle
     Route::get('/{type}', 'show')->where(['type' => '[0-9]+'])->name('show');
 });
 
-/* Routes des types */
+/* Routes des tags */
 
 Route::prefix('/tag')->name('tag.')->controller(TagController::class)->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('index');
@@ -50,6 +51,17 @@ Route::prefix('/tag')->name('tag.')->controller(TagController::class)->middlewar
     Route::get('/{tag}/edit', 'edit')->name('edit');
     Route::patch('/{tag}/edit', 'update');
     Route::get('/{tag}', 'show')->where(['tag' => '[0-9]+'])->name('show');
+});
+
+/* Routes des pieces */
+
+Route::prefix('/piece')->name('piece.')->controller(PieceController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/new', 'create')->name('create')->middleware('auth');
+    Route::post('/new', 'store')->middleware('auth');
+    Route::get('/{piece}/edit', 'edit')->name('edit')->middleware('auth');
+    Route::patch('/{piece}/edit', 'update')->middleware('auth');
+    Route::get('/{slug}/{piece}', 'show')->where(['piece' => '[0-9]+', 'slug' => '[a-z0-9\-]+'])->name('show');
 });
 
 /* Routes des projets */
