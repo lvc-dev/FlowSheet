@@ -22,11 +22,11 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {{-- <li class="nav-item">
                             <a @class(['nav-link', 'active' => str_starts_with($routeName, 'project.')]) href="{{ route('project.index') }}">Projets</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
-                            <a @class(['nav-link', 'active' => str_starts_with($routeName, 'category.')]) href="{{ route('category.index') }}">Types</a>
+                            <a @class(['nav-link', 'active' => str_starts_with($routeName, 'type.')]) href="{{ route('type.index') }}">Types</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a @class(['nav-link', 'active' => str_starts_with($routeName, 'tag.')]) href="{{ route('tag.index') }}">Tags</a>
                         </li> --}}
                     </ul>
