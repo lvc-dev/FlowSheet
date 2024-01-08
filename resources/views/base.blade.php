@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +26,9 @@
                         <li class="nav-item">
                             <a @class(['nav-link', 'active' => str_starts_with($routeName, 'type.')]) href="{{ route('type.index') }}">Types</a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a @class(['nav-link', 'active' => str_starts_with($routeName, 'tag.')]) href="{{ route('tag.index') }}">Tags</a>
-                        </li> --}}
+                        </li>
                     </ul>
                     <div class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <a href="" class="nav-link active">{{ Auth::user()->name }}</a>

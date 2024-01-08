@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,17 @@ Route::prefix('/type')->name('type.')->controller(TypeController::class)->middle
     Route::get('/{type}/edit', 'edit')->name('edit');
     Route::patch('/{type}/edit', 'update');
     Route::get('/{type}', 'show')->where(['type' => '[0-9]+'])->name('show');
+});
+
+/* Routes des types */
+
+Route::prefix('/tag')->name('tag.')->controller(TagController::class)->middleware('auth')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/new', 'create')->name('create');
+    Route::post('/new', 'store');
+    Route::get('/{tag}/edit', 'edit')->name('edit');
+    Route::patch('/{tag}/edit', 'update');
+    Route::get('/{tag}', 'show')->where(['tag' => '[0-9]+'])->name('show');
 });
 
 /* Routes des projets */
