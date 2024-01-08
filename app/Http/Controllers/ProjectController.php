@@ -14,7 +14,7 @@ class ProjectController extends Controller
 {
     public function index() : View {
         return view('project.index', [
-            'projects' => Project::with('tags', 'pieces', 'types')->paginate(5)
+            'projects' => Project::with('tags', 'pieces', 'type')->paginate(5)
         ]);
     }
 
