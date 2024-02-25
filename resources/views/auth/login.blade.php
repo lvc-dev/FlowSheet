@@ -3,7 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
-    <h1>Se connecter</h1>
+    <h1 class="mb-5 mt-3">Se connecter</h1>
     <div class="card">
         <div class="card-body">
             <form action="{{ route('auth.login') }}" method="post" class="vstack gap-3">

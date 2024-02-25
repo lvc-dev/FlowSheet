@@ -3,7 +3,7 @@
 @section('title', 'Accueil des projets')
 
 @section('content')
-    <h1>Projets</h1>
+    <h1 class="mb-5 mt-3">Projets</h1>
     @foreach ($projects as $project)
         <div class="container-fluid">
             <h3>{{ $project->name }}</h3>

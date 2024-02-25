@@ -29,6 +29,9 @@
                         <li class="nav-item">
                             <a @class(['nav-link', 'active' => str_starts_with($routeName, 'tag.')]) href="{{ route('tag.index') }}">Tags</a>
                         </li>
+                        <li class="nav-item">
+                            <a @class(['nav-link', 'active' => str_starts_with($routeName, 'setting.')]) href="{{ route('setting.index') }}">Paramètres</a>
+                        </li>
                     </ul>
                     <div class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <a href="" class="nav-link active">{{ Auth::user()->name }}</a>

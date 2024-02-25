@@ -4,7 +4,7 @@
 
 @section('content')
     <article>
-        <h2 class="text-decoration-underline text-center mb-5">{{ $piece->name }}</h2>
+        <h2 class="text-decoration-underline text-center mb-5 mt-3">{{ $piece->name }}</h2>
         <p class="text-start">
             Projet : {{ $piece->project->name}}
         </p>

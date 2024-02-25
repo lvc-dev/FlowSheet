@@ -68,4 +68,16 @@ class ProjectController extends Controller
             'project' => $project->id
         ])->with('success', 'Le projet a bien été modifier');
     }
+
+    public function export(string $slug, Project $project) : RedirectResponse | View {
+        AppController::class->writeSettingJson($project->name);
+        $pieces = Piece::all();
+        if ($project->slug !== $slug) {
+            return to_route('project.show', ['slug' => $project->slug, 'id' => $project->id]);
+        }
+        return view('project.show', [
+            'project' => $project,
+            'pieces' => $pieces
+        ]);
+    }
 }

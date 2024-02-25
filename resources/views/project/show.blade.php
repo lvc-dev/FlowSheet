@@ -4,7 +4,7 @@
 
 @section('content')
     <article>
-        <h1>{{ $project->name }}</h1>
+        <h1 class="mb-5 mt-3">{{ $project->name }}</h1>
         <p>
             @if (!$project->tags->isEmpty())
                 @foreach ($project->tags as $tag)
